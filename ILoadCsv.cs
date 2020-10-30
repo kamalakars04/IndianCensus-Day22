@@ -12,18 +12,10 @@ namespace CensusDemo
     using CensusDemo.DTO;
 
     /// <summary>
-    /// Different types of files
+    /// Interface to be implemented by DAO of all file classes
     /// </summary>
-    public enum FileType
+    internal interface ILoadCsv
     {
-        INDIAN_STATE_CENSUS
-    }
-
-    public class CensusAnalyser 
-    {
-        public Dictionary<string, CensusDTO> LoadCsvFile(FileType type, string filePath, string dataheaders)
-        {
-           return new CSVCensusAdaptor().LoadCsv(type, filePath, dataheaders);
-        }
+        Dictionary<string,CensusDTO> LoadCsv(string filePath);
     }
 }
