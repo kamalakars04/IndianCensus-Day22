@@ -24,10 +24,22 @@ namespace CensusDemo
         /// <returns></returns>
         internal CensusDTO GetObject(FileType type)
         {
+            // If the instance already exists then return the same
             if (fileInstanceMap.ContainsKey(type))
                 return fileInstanceMap[type];
+
+            // If the instance doesnt exist then create a new one according to file type
             if (type == FileType.INDIAN_STATE_CENSUS)
-                return new IndianStateCensusDAO();
+            {
+                fileInstanceMap.Add(type, new IndianStateCensusDAO());
+                return fileInstanceMap[type];
+            }
+                 
+            if (type == FileType.INDIAN_STATE_CODE)
+            {
+                fileInstanceMap.Add(type, new IndiaStateCodeDAO());
+                return fileInstanceMap[type];
+            }
             return null;
         }
     }

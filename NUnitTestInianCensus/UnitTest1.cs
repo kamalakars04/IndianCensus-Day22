@@ -15,7 +15,7 @@ namespace NUnitTestInianCensus
         public static string wrongHeaderIndianCensusFile = @"C:\Users\kamalakar\Desktop\bridge labs\IndianCensus\CSVFiles\WrongIndiaStateCensusData.csv";
         public static string wrongHeaderIndianStateCode = @"C:\Users\kamalakar\Desktop\bridge labs\IndianCensus\CSVFiles\WrongIndiaStateCode.csv";
         public static string wrongIndianStateCensusFilePath = @"C:\Users\HP\source\repos\IndiaCensusDataDemo\CSVFiles1\WrongIndiaStateCensusData.csv";
-        public static string wrongIndianStateCensusFileType = @"C:\Users\kamalakar\Desktop\bridge labs\IndianCensus\IndianStateCensus.txt";
+        public static string wrongIndianStateCensusFileType = @"C:\Users\kamalakar\Desktop\bridge labs\IndianCensus\CSVFiles\IndianStateCensus.txt";
         public static string wrongIndianStateCodeFilePath = @"C:\Users\HP\source\repos\IndiaCensusDataDemo\CSVFiles1\WrongIndiaStateCode.csv";
         public static string wrongIndianStateCodeFiletype = @"C:\Users\kamalakar\Desktop\bridge labs\IndianCensus\CSVFiles\IndiaStateCode.txt";
         public static string delimeterIndianStateCodeFilePath = @"C:\Users\kamalakar\Desktop\bridge labs\IndianCensus\CSVFiles\DelimiterIndiaStateCode.csv";
@@ -39,7 +39,7 @@ namespace NUnitTestInianCensus
         /// <summary>
         /// TC1.1 Given the States Census CSV file, Check to ensure the Number of Record matches
         /// </summary>
-        [Test]
+        [Test, Category("India State Census data")]
         public void GivenIndianCensusDataFile()
         {
             totalRecord = censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CENSUS , indianStateCensusFilePath, indianStateCensusHeaders);
@@ -49,7 +49,7 @@ namespace NUnitTestInianCensus
         /// <summary>
         /// TC 1.2 Given the State Census CSV File if incorrect Returns a custom Exception
         /// </summary>
-        [Test]
+        [Test, Category("India State Census data")]
         public void GivenWrongIndian()
         {
             var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CENSUS,wrongIndianStateCensusFilePath, indianStateCensusHeaders));
@@ -59,7 +59,7 @@ namespace NUnitTestInianCensus
         /// <summary>
         /// TC 1.3 Given the State Census CSV File when correct but type incorrect Returns a custom Exception
         /// </summary>
-        [Test]
+        [Test, Category("India State Census data")]
         public void GivenWrongIndianCensusDataFileType()
         {
             var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CENSUS,wrongIndianStateCensusFileType, indianStateCensusHeaders));
@@ -69,7 +69,7 @@ namespace NUnitTestInianCensus
         /// <summary>
         /// TC 1.4 Given the State Census CSV File when correct but delimiter incorrect Returns a custom Exception
         /// </summary>
-        [Test]
+        [Test, Category("India State Census data")]
         public void GivenWrongIndianCensusDataFileTypeDelimeter()
         {
             var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CENSUS, delimeterIndianCensusCodeFilePath,indianStateCensusHeaders));
@@ -79,10 +79,60 @@ namespace NUnitTestInianCensus
         /// <summary>
         /// TC 1.5 Given the State Census CSV File when correct but csv header incorrect Returns a custom Exception
         /// </summary>
-        [Test]
+        [Test, Category("India State Census data")]
         public void GivenWrongIndianCensusDataHeadersCustomExcep()
         {
             var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CENSUS, wrongHeaderIndianCensusFile, indianStateCensusHeaders));
+            Assert.AreEqual(CensusAnalyserException.ExceptionType.HEADERS_MISMATCH, indianCensusResult.type);
+        }
+
+        /// <summary>
+        /// TC 2.1 Given the States Code CSV file, Check to ensure the Number of Record matches
+        /// </summary>
+        [Test, Category("India State Code")]
+        public void GivenIndianStateCodeDataFile()
+        {
+            totalRecord = censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CODE, indianStateCodeFilePath, indianStateCodeHeaders);
+            Assert.AreEqual(37, totalRecord.Count);
+        }
+
+        /// <summary>
+        /// TC 2.2 Given the State Code CSV File if incorrect Returns a custom Exception
+        /// </summary>
+        [Test, Category("India State Code")]
+        public void GivenWrongIndianStateCode()
+        {
+            var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CODE, wrongIndianStateCodeFilePath, indianStateCodeHeaders));
+            Assert.AreEqual(CensusAnalyserException.ExceptionType.FILE_NOT_FOUND, indianCensusResult.type);
+        }
+
+        /// <summary>
+        /// TC 2.3 Given the State Code CSV File when correct but type incorrect Returns a custom Exception
+        /// </summary>
+        [Test, Category("India State Code")]
+        public void GivenWrongIndianStateCodeFileType()
+        {
+            var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CODE, wrongIndianStateCodeFiletype, indianStateCodeHeaders));
+            Assert.AreEqual(CensusAnalyserException.ExceptionType.EXTENSION_NOT_FOUND, indianCensusResult.type);
+        }
+
+        /// <summary>
+        /// TC 2.4 Given the State Code CSV File when correct but delimiter incorrect Returns a custom Exception
+        /// </summary>
+        [Test, Category("India State Code")]
+        public void GivenWrongIndianStateCodeFileTypeDelimeter()
+        {
+            var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CODE, delimeterIndianStateCodeFilePath, indianStateCodeHeaders));
+            Assert.AreEqual(CensusAnalyserException.ExceptionType.INCOREECT_DELIMITER, indianCensusResult.type);
+        }
+
+        /// <summary>
+        /// TC 2.5 Given the State Code CSV File when correct but csv header incorrect Returns a custom Exception
+        /// </summary>
+        [Test, Category("India State Code")]
+        public void GivenWrongIndianStateCodeHeadersCustomExcep()
+        {
+            var indianCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCsvFile(CensusDemo.FileType.INDIAN_STATE_CODE, wrongHeaderIndianStateCode, indianStateCodeHeaders));
             Assert.AreEqual(CensusAnalyserException.ExceptionType.HEADERS_MISMATCH, indianCensusResult.type);
         }
     }
