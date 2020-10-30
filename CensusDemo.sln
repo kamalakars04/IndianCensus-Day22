@@ -3,7 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndianCensus", "IndianCensus.csproj", "{88C6F258-DAD6-43A1-A63A-E7FC3BE053FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IndianCensus", "IndianCensus.csproj", "{88C6F258-DAD6-43A1-A63A-E7FC3BE053FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestInianCensus", "NUnitTestInianCensus\NUnitTestInianCensus.csproj", "{60EA582A-C1C6-4103-919A-C6C4EC28A6E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23528C95-6A2B-4929-894D-9CD19C17DBDE}"
+	ProjectSection(SolutionItems) = preProject
+		CSVFiles\DelimiterIndiaStateCensusData.csv = CSVFiles\DelimiterIndiaStateCensusData.csv
+		CSVFiles\DelimiterIndiaStateCode.csv = CSVFiles\DelimiterIndiaStateCode.csv
+		IndianStateCensus.txt = IndianStateCensus.txt
+		CSVFiles\IndiaStateCensusData.csv = CSVFiles\IndiaStateCensusData.csv
+		CSVFiles\IndiaStateCode.csv = CSVFiles\IndiaStateCode.csv
+		CSVFiles\IndiaStateCode.txt = CSVFiles\IndiaStateCode.txt
+		CSVFiles\WrongIndiaStateCensusData.csv = CSVFiles\WrongIndiaStateCensusData.csv
+		CSVFiles\WrongIndiaStateCode.csv = CSVFiles\WrongIndiaStateCode.csv
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +29,10 @@ Global
 		{88C6F258-DAD6-43A1-A63A-E7FC3BE053FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88C6F258-DAD6-43A1-A63A-E7FC3BE053FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88C6F258-DAD6-43A1-A63A-E7FC3BE053FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60EA582A-C1C6-4103-919A-C6C4EC28A6E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60EA582A-C1C6-4103-919A-C6C4EC28A6E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60EA582A-C1C6-4103-919A-C6C4EC28A6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60EA582A-C1C6-4103-919A-C6C4EC28A6E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
