@@ -25,6 +25,10 @@ namespace CensusDemo.DTO
         public double waterArea;
         public double landArea;
 
+        // Variable declarations
+        internal CensusDTO census;
+        public Dictionary<string, CensusDTO> dataMap = new Dictionary<string, CensusDTO>();
+
         /// <summary>
         /// Loads the CSV.
         /// </summary>

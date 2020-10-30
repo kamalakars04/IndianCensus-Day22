@@ -14,10 +14,6 @@ namespace CensusDemo.DAO
     using CensusDemo.DTO;
     class IndianStateCensusDAO : CensusDTO
     {
-        // Variable declarations
-        CensusDTO census;
-        public Dictionary<string, CensusDTO> dataMap = new Dictionary<string, CensusDTO>();
-
         /// <summary>
         /// Initializes a new instance of the <see cref="IndianStateCensusDAO"/> class.
         /// </summary>
